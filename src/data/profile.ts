@@ -1,6 +1,6 @@
 export const profile = {
   name: 'Kota KIMURA',
-  role: 'AI エンジニア / 研究学生',
+  role: 'AI エンジニア / 修士課程　/ 28卒',
   role_en: 'ai engineer / research student',
   affiliation: '岐阜大学大学院自然科学技術研究科',
   affiliation_en: 'gifu university, graduate school of natural science and technology',
