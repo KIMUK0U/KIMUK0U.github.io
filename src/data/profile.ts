@@ -13,14 +13,15 @@ export const profile = {
 export const research = [
   {
     id: 'R-000',
-    title_ja: '学生支援AI「ユメカタリ」',
+    title_ja: '生徒支援AI「ユメカタリ」',
     title_en: 'student support ai "yumekatari"',
-    description: 'LLMを活用した学生向けキャリア支援AIを開発。愛知の学生が選ぶ企業100選共同プロジェクト「ユメカタリ生成AIコンテスト」開発部門にて優秀賞を受賞。',
-    tags: ['生成AI', 'LLM', 'キャリア支援'],
+    description: 'LLMを活用し、生徒の深刻な悩みを早期検知するシステムを開発。教師の負担軽減を目指したチーム開発プロジェクト。愛知の学生が選ぶ企業100選共同プロジェクト「ユメカタリ生成AIコンテスト」開発部門にて優秀賞を受賞。',
+    tags: ['生成AI', 'LLM', 'チーム開発'],
     year: '2024',
     repo: 'https://github.com/Mugi323/student-support-ai',
     award: 'ユメカタリ生成AIコンテスト 開発部門優秀賞',
     contributed: true,
+    video: '7IkSHao4BTA',
   },
   {
     id: 'R-001',
@@ -66,8 +67,8 @@ export const research = [
 export const presentations = [
   {
     id: 'P-001',
-    title_ja: 'DentalPatchAligned3D: 歯科CT点群へのPointLLM適用',
-    title_en: 'dentalpatcaligned3d: applying pointllm to dental ct point clouds',
+    title_ja: 'スマートグラスを利用した実物頭部模型への歯科CBCT画像3D重畳表示',
+    title_en: '3d overlay of dental cbct images on physical head model using smart glasses',
     event: '第10回 歯科AI研究会',
     event_en: '10th dental ai study group',
     date: '2025年8月',
