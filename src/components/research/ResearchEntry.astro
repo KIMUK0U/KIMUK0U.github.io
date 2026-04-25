@@ -7,9 +7,10 @@ interface Props {
   tags: string[];
   year: string;
   repo: string;
+  video?: string;
 }
 
-const { id, title_ja, title_en, description, tags, year, repo } = Astro.props;
+const { id, title_ja, title_en, description, tags, year, repo, video } = Astro.props;
 ---
 
 <article class="research-entry">
@@ -33,6 +34,18 @@ const { id, title_ja, title_en, description, tags, year, repo } = Astro.props;
     <div class="research-entry__tags">
       {tags.map(tag => <span class="tag">{tag}</span>)}
     </div>
+
+    {video && (
+      <div class="research-entry__video">
+        <iframe
+          src={`https://www.youtube.com/embed/${video}`}
+          title={`${title_ja} デモ動画`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    )}
 
     <a
       href={repo}

@@ -2,12 +2,12 @@ export const profile = {
   name: 'Kota KIMURA',
   role: 'AI エンジニア / 研究学生',
   role_en: 'ai engineer / research student',
-  affiliation: '大阪公立大学大学院',
-  affiliation_en: 'osaka metropolitan university, graduate school',
+  affiliation: '岐阜大学大学院自然科学技術研究科',
+  affiliation_en: 'gifu university, graduate school of natural science and technology',
   github: 'https://github.com/KIMUK0U',
   email: 'kt2g.kimura@gmail.com',
-  interests: ['機械学習', 'コンピュータビジョン', 'XR', '医用画像処理', '3D点群処理'],
-  interests_en: ['machine learning', 'computer vision', 'xr', 'medical image processing', '3d point cloud'],
+  interests: ['画像認識', 'コンピュータビジョン', 'LLM', 'XR', 'Apple Vision Pro', '3D点群処理'],
+  interests_en: ['image recognition', 'computer vision', 'llm', 'xr', 'apple vision pro', '3d point cloud'],
 };
 
 export const research = [
@@ -28,6 +28,7 @@ export const research = [
     tags: ['Apple Vision Pro', 'visionOS', 'DICOM', 'XR'],
     year: '2024–2025',
     repo: 'https://github.com/KIMUK0U',
+    video: 'fO_nbQumDiA',
   },
   {
     id: 'R-003',
@@ -37,6 +38,7 @@ export const research = [
     tags: ['Apple Vision Pro', 'visionOS', 'Segmentation', 'AR', '3D Reconstruction'],
     year: '2025',
     repo: 'https://github.com/KIMUK0U',
+    video: 'YEDly6YqrT8',
   },
   {
     id: 'R-004',
@@ -46,6 +48,7 @@ export const research = [
     tags: ['PointLLM', 'Apple Vision Pro', 'LLM', '3D Point Cloud', 'visionOS'],
     year: '2025–2026',
     repo: 'https://github.com/KIMUK0U',
+    video: 'UfqtsDzRu2U',
   },
 ];
 
