@@ -18,13 +18,13 @@
 .hero::before {
   background-image: url('/images/view1.jpeg');
   background-position: center 35%;
-  animation: hero-bg-fade 30s ease-in-out infinite;
+  animation: hero-bg-fade 10s ease-in-out infinite;
 }
 
 .hero::after {
   background-image: url('/images/view2.png');
   background-position: center center;
-  animation: hero-bg-fade 30s ease-in-out infinite -5s;
+  animation: hero-bg-fade 10s ease-in-out infinite -5s;
 }
 
 @keyframes hero-bg-fade {
