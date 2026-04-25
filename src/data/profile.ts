@@ -30,7 +30,7 @@ export const research = [
     description: 'エッジデバイス上でリアルタイム顔認証を実行するAIシステム。低遅延・低消費電力の推論パイプラインを設計・実装。',
     tags: ['Edge AI', 'Face Recognition', 'Computer Vision'],
     year: '2024',
-    repo: 'https://github.com/KIMUK0U',
+    repo: 'https://github.com/KIMUK0U/Bus-Occupant-Detection',
   },
   {
     id: 'R-002',
@@ -39,7 +39,7 @@ export const research = [
     description: 'Apple Vision Pro を用いて、CT画像をリアルスケールでXR空間に投影し、スライス位置をリアルタイムに変更できるシステム。医学教育・手術計画への応用を目指す。',
     tags: ['Apple Vision Pro', 'visionOS', 'DICOM', 'XR'],
     year: '2024–2025',
-    repo: 'https://github.com/KIMUK0U',
+    repo: 'https://github.com/KIMUK0U/VisionOS-CTSlice-Viewer',
     video: 'fO_nbQumDiA',
   },
   {
@@ -49,7 +49,7 @@ export const research = [
     description: 'CT画像からセグメンテーションした解剖構造3Dモデルを、実物の頭部模型にAR技術でリアルタイム重畳表示。空間的な解剖理解を支援する。',
     tags: ['Apple Vision Pro', 'visionOS', 'Segmentation', 'AR', '3D Reconstruction'],
     year: '2025',
-    repo: 'https://github.com/KIMUK0U',
+    repo: 'https://github.com/KIMUK0U/CTAndPhantomRegistrationProject',
     video: 'YEDly6YqrT8',
   },
   {
@@ -59,7 +59,7 @@ export const research = [
     description: 'PointLLMの動的着色機能で可視化した3D点群解剖モデルをXR空間に表示し、LLMと対話しながら解剖構造を学習・認識するシステム。',
     tags: ['PointLLM', 'Apple Vision Pro', 'LLM', '3D Point Cloud', 'visionOS'],
     year: '2025–2026',
-    repo: 'https://github.com/KIMUK0U',
+    repo: 'https://github.com/KIMUK0U/InteractiveAnatomyChat',
     video: 'UfqtsDzRu2U',
   },
 ];
