@@ -1,0 +1,51 @@
+---
+interface Props {
+  id: string;
+  title_ja: string;
+  title_en: string;
+  description: string;
+  tags: string[];
+  year: string;
+  repo: string;
+}
+
+const { id, title_ja, title_en, description, tags, year, repo } = Astro.props;
+---
+
+<article class="research-entry">
+  <div class="research-entry__id-col" aria-hidden="true">
+    <span class="research-entry__id">{id}</span>
+  </div>
+
+  <div class="research-entry__body">
+    <div class="research-entry__meta">
+      <span class="research-entry__year en">[{year}]</span>
+      <span class="section-label" aria-hidden="true">{id}</span>
+    </div>
+
+    <h3 class="research-entry__title">
+      {title_ja}
+      <span class="research-entry__title-en en">{title_en}</span>
+    </h3>
+
+    <p class="research-entry__description">{description}</p>
+
+    <div class="research-entry__tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+
+    <a
+      href={repo}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="research-entry__link"
+      aria-label={`${title_ja} のGitHubリポジトリ`}
+    >
+      GitHub
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+      </svg>
+    </a>
+  </div>
+</article>

@@ -1,0 +1,121 @@
+.research {
+  padding-block: var(--space-section);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.research__header {
+  margin-bottom: var(--space-12);
+}
+
+.research__list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 5vw, 5rem);
+}
+
+.research-entry {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding-bottom: clamp(3rem, 5vw, 5rem);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.research-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.research-entry__id-col {
+  padding-top: 0.2em;
+}
+
+.research-entry__id {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  user-select: none;
+}
+
+.research-entry__body {}
+
+.research-entry__title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.research-entry__title-en {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-text-en);
+  letter-spacing: 0.02em;
+  margin-top: var(--space-2);
+}
+
+.research-entry__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.research-entry__year {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.research-entry__description {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: 1.85;
+  margin-bottom: var(--space-4);
+  max-width: 65ch;
+}
+
+.research-entry__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.research-entry__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  transition: gap var(--duration-fast) var(--ease-out),
+              opacity var(--duration-fast) var(--ease-out);
+}
+
+.research-entry__link:hover {
+  gap: var(--space-3);
+  opacity: 0.8;
+}
+
+.research-entry__link svg {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 500px) {
+  .research-entry {
+    grid-template-columns: 1fr;
+  }
+  .research-entry__id-col {
+    display: none;
+  }
+}

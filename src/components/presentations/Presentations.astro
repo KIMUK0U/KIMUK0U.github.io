@@ -1,0 +1,50 @@
+---
+import './presentations.css';
+import { presentations } from '@/data/profile';
+---
+
+<section class="presentations" aria-labelledby="presentations-heading">
+  <div class="container">
+    <div class="presentations__header">
+      <span class="section-label">presentations</span>
+      <h2 id="presentations-heading" style="font-size: var(--text-xl); font-weight: 700; margin-top: var(--space-3);">
+        発表・登壇
+        <span class="en" style="display: block; font-size: var(--text-sm); margin-top: var(--space-2);">presentations</span>
+      </h2>
+    </div>
+
+    <div class="presentations__list">
+      {presentations.map(item => (
+        <article class="presentation-item">
+          <span class="presentation-item__id" aria-hidden="true">{item.id}</span>
+
+          <div>
+            <h3 class="presentation-item__title">
+              {item.title_ja}
+              <span class="presentation-item__title-en en">{item.title_en}</span>
+            </h3>
+
+            <div class="presentation-item__meta">
+              <div>
+                <span class="presentation-item__event">{item.event}</span>
+                <span class="presentation-item__event-en en">{item.event_en}</span>
+              </div>
+              <span class="presentation-item__date en">{item.date}</span>
+              <span class="presentation-item__type en">{item.type}</span>
+            </div>
+
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="presentation-item__link"
+              aria-label={`${item.title_ja} の詳細ページ`}
+            >
+              詳細を見る →
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

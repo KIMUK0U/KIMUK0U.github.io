@@ -1,0 +1,41 @@
+---
+import './about.css';
+import { profile } from '@/data/profile';
+---
+
+<section class="about" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about__header">
+      <span class="section-label">about</span>
+    </div>
+
+    <div class="about__inner">
+      <p class="about__lead">
+        AIを道具として、現実空間に知能を組み込む。
+        <span class="about__lead-en en">
+          embedding intelligence into physical space, using ai as a tool.
+        </span>
+      </p>
+
+      <div class="about__body">
+        <p>
+          機械学習・コンピュータビジョンを中心に研究・開発を行う学生エンジニアです。
+          Apple Vision Pro などの XR デバイスを活用し、AIと現実空間を接続するシステムを設計しています。
+          医用画像処理・3D点群・LLMを組み合わせた応用研究に取り組んでいます。
+        </p>
+
+        <div class="about__interests">
+          <p class="about__interests-label">interests</p>
+          <div class="about__tags">
+            {profile.interests.map((interest, i) => (
+              <span class="tag">
+                {interest}
+                <span class="en" style="margin-left: 4px;">/ {profile.interests_en[i]}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

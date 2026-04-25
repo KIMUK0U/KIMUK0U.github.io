@@ -1,0 +1,31 @@
+---
+import './research.css';
+import ResearchEntry from './ResearchEntry.astro';
+import { research } from '@/data/profile';
+---
+
+<section class="research" aria-labelledby="research-heading">
+  <div class="container">
+    <div class="research__header">
+      <span class="section-label">research & projects</span>
+      <h2 id="research-heading" style="font-size: var(--text-xl); font-weight: 700; margin-top: var(--space-3);">
+        研究・プロジェクト
+        <span class="en" style="display: block; font-size: var(--text-sm); margin-top: var(--space-2);">research & projects</span>
+      </h2>
+    </div>
+
+    <div class="research__list">
+      {research.map(item => (
+        <ResearchEntry
+          id={item.id}
+          title_ja={item.title_ja}
+          title_en={item.title_en}
+          description={item.description}
+          tags={item.tags}
+          year={item.year}
+          repo={item.repo}
+        />
+      ))}
+    </div>
+  </div>
+</section>

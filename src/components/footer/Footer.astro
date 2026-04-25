@@ -1,0 +1,29 @@
+---
+import './footer.css';
+import { profile } from '@/data/profile';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__left">
+        <span class="footer__name">{profile.name}</span>
+        <span class="footer__copy en">© {year} {profile.name_en}. built with astro.</span>
+      </div>
+
+      <nav class="footer__links" aria-label="フッターリンク">
+        <a
+          href={profile.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer__link"
+        >GitHub</a>
+        <a href={`mailto:${profile.email}`} class="footer__link">
+          {profile.email}
+        </a>
+      </nav>
+    </div>
+  </div>
+</footer>

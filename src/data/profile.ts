@@ -1,0 +1,73 @@
+export const profile = {
+  name: 'Kota KIMURA',
+  role: 'AI エンジニア / 研究学生',
+  role_en: 'ai engineer / research student',
+  affiliation: '大阪公立大学大学院',
+  affiliation_en: 'osaka metropolitan university, graduate school',
+  github: 'https://github.com/KIMUK0U',
+  email: 'kt2g.kimura@gmail.com',
+  interests: ['機械学習', 'コンピュータビジョン', 'XR', '医用画像処理', '3D点群処理'],
+  interests_en: ['machine learning', 'computer vision', 'xr', 'medical image processing', '3d point cloud'],
+};
+
+export const research = [
+  {
+    id: 'R-001',
+    title_ja: '顔認証を用いたエッジAI',
+    title_en: 'edge ai with face recognition',
+    description: 'エッジデバイス上でリアルタイム顔認証を実行するAIシステム。低遅延・低消費電力の推論パイプラインを設計・実装。',
+    tags: ['Edge AI', 'Face Recognition', 'Computer Vision'],
+    year: '2024',
+    repo: 'https://github.com/KIMUK0U',
+  },
+  {
+    id: 'R-002',
+    title_ja: 'XR空間でのCTスライス画像の実物大可視化',
+    title_en: 'full-scale ct slice visualization in xr',
+    description: 'Apple Vision Pro を用いて、CT画像をリアルスケールでXR空間に投影し、スライス位置をリアルタイムに変更できるシステム。医学教育・手術計画への応用を目指す。',
+    tags: ['Apple Vision Pro', 'visionOS', 'DICOM', 'XR'],
+    year: '2024–2025',
+    repo: 'https://github.com/KIMUK0U',
+  },
+  {
+    id: 'R-003',
+    title_ja: 'CT画像由来の3D解剖モデルと頭部模型のAR重畳',
+    title_en: 'ar overlay of ct-derived 3d anatomy on physical model',
+    description: 'CT画像からセグメンテーションした解剖構造3Dモデルを、実物の頭部模型にAR技術でリアルタイム重畳表示。空間的な解剖理解を支援する。',
+    tags: ['Apple Vision Pro', 'visionOS', 'Segmentation', 'AR', '3D Reconstruction'],
+    year: '2025',
+    repo: 'https://github.com/KIMUK0U',
+  },
+  {
+    id: 'R-004',
+    title_ja: 'XR空間でのPointLLMを用いた解剖構造対話システム',
+    title_en: 'pointllm-based anatomy chat in xr',
+    description: 'PointLLMの動的着色機能で可視化した3D点群解剖モデルをXR空間に表示し、LLMと対話しながら解剖構造を学習・認識するシステム。',
+    tags: ['PointLLM', 'Apple Vision Pro', 'LLM', '3D Point Cloud', 'visionOS'],
+    year: '2025–2026',
+    repo: 'https://github.com/KIMUK0U',
+  },
+];
+
+export const presentations = [
+  {
+    id: 'P-001',
+    title_ja: 'DentalPatchAligned3D: 歯科CT点群へのPointLLM適用',
+    title_en: 'dentalpatcaligned3d: applying pointllm to dental ct point clouds',
+    event: '第10回 歯科AI研究会',
+    event_en: '10th dental ai study group',
+    date: '2025年8月',
+    type: '口述発表（査読なし）',
+    url: 'https://jdai.or.jp/2025/03/31/10th_study_group/',
+  },
+  {
+    id: 'P-002',
+    title_ja: 'XR空間における点群解剖モデルのLLM対話システム',
+    title_en: 'llm dialogue system for point cloud anatomy in xr',
+    event: '医用画像処理一般・メディカルイメージング連合フォーラム',
+    event_en: 'medical imaging joint forum',
+    date: '2026年3月',
+    type: '口述発表（査読なし）',
+    url: 'https://ken.ieice.org/ken/paper/20260306EcUA/',
+  },
+];
