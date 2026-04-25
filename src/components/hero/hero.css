@@ -1,9 +1,25 @@
 .hero {
+  position: relative;
+  overflow: hidden;
   padding-block: clamp(4rem, 3rem + 5vw, 9rem) clamp(3rem, 2rem + 4vw, 6rem);
   border-bottom: 1px solid var(--color-border);
 }
 
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/view1.jpeg');
+  background-size: cover;
+  background-position: center 35%;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .hero__inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: var(--space-8);

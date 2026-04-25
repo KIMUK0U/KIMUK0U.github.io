@@ -12,6 +12,17 @@ export const profile = {
 
 export const research = [
   {
+    id: 'R-000',
+    title_ja: '学生支援AI「ユメカタリ」',
+    title_en: 'student support ai "yumekatari"',
+    description: 'LLMを活用した学生向けキャリア支援AIを開発。愛知の学生が選ぶ企業100選共同プロジェクト「ユメカタリ生成AIコンテスト」開発部門にて優秀賞を受賞。',
+    tags: ['生成AI', 'LLM', 'キャリア支援'],
+    year: '2024',
+    repo: 'https://github.com/Mugi323/student-support-ai',
+    award: 'ユメカタリ生成AIコンテスト 開発部門優秀賞',
+    contributed: true,
+  },
+  {
     id: 'R-001',
     title_ja: '顔認証を用いたエッジAI',
     title_en: 'edge ai with face recognition',
@@ -74,3 +85,20 @@ export const presentations = [
     url: 'https://ken.ieice.org/ken/paper/20260306EcUA/',
   },
 ];
+
+export const work = [
+  {
+    company: 'MirumeAI',
+    company_en: 'mirumeai',
+    url: 'https://mirumeai.com/',
+    role: 'AIエンジニア',
+    role_en: 'ai engineer',
+    type: 'アルバイト',
+    type_en: 'part-time',
+  },
+];
+
+export const skills = {
+  current: ['Python', 'Swift', 'visionOS', '画像認識', 'LLM', 'Apple Vision Pro'],
+  past: ['3DGS', 'モデリング', 'Apple DepthPro', 'DICOM処理', 'Unity', 'PyTorch'],
+};

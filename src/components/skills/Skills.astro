@@ -1,0 +1,35 @@
+---
+import './skills.css';
+import { skills } from '@/data/profile';
+---
+
+<section class="skills" aria-labelledby="skills-heading">
+  <div class="container">
+    <div class="skills__header">
+      <span class="section-label">tech stack</span>
+      <h2 id="skills-heading" style="font-size: var(--text-xl); font-weight: 700; margin-top: var(--space-3);">
+        触ってきた技術
+        <span class="en" style="display: block; font-size: var(--text-sm); margin-top: var(--space-2);">technologies explored</span>
+      </h2>
+    </div>
+
+    <div class="skills__grid">
+      <div>
+        <p class="skills__group-label">現在 / current</p>
+        <div class="skills__tags">
+          {skills.current.map(s => (
+            <span class="skills__tag skills__tag--current">{s}</span>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="skills__group-label">経験あり / past</p>
+        <div class="skills__tags">
+          {skills.past.map(s => (
+            <span class="skills__tag">{s}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
