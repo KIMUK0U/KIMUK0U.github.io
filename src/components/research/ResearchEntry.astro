@@ -6,13 +6,20 @@ interface Props {
   description: string;
   tags: string[];
   year: string;
-  repo: string;
+  repo?: string;
+  privateRepo?: boolean;
   video?: string;
+  gif?: { src: string; alt: string };
+  figures?: { src: string; alt: string; caption: string }[];
+  aws?: string[];
   award?: string;
   contributed?: boolean;
 }
 
-const { id, title_ja, title_en, description, tags, year, repo, video, award, contributed } = Astro.props;
+const {
+  id, title_ja, title_en, description, tags, year, repo, privateRepo,
+  video, gif, figures, aws, award, contributed,
+} = Astro.props;
 ---
 
 <article class="research-entry">
@@ -59,7 +66,39 @@ const { id, title_ja, title_en, description, tags, year, repo, video, award, con
       </div>
     )}
 
-    <a
+    {gif && (
+      <figure class="research-entry__gif">
+        <img src={gif.src} alt={gif.alt} width="960" height="600" loading="lazy" decoding="async" />
+      </figure>
+    )}
+
+    {figures && figures.length > 0 && (
+      <div class="research-entry__figures">
+        {figures.map(fig => (
+          <figure class="research-entry__figure">
+            <a href={fig.src} target="_blank" rel="noopener noreferrer" aria-label={`${fig.caption}（拡大して開く）`}>
+              <img src={fig.src} alt={fig.alt} loading="lazy" decoding="async" />
+            </a>
+            <figcaption>{fig.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
+
+    {aws && aws.length > 0 && (
+      <div class="research-entry__aws">
+        <p class="research-entry__aws-title">AWS の活用 <span class="en">aws architecture</span></p>
+        <ul>
+          {aws.map(point => <li>{point}</li>)}
+        </ul>
+      </div>
+    )}
+
+    {privateRepo && !repo && (
+      <span class="research-entry__private en">private repository</span>
+    )}
+
+    {repo && <a
       href={repo}
       target="_blank"
       rel="noopener noreferrer"
@@ -71,6 +110,6 @@ const { id, title_ja, title_en, description, tags, year, repo, video, award, con
         <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
         <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
       </svg>
-    </a>
+    </a>}
   </div>
 </article>

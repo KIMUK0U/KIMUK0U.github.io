@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 600" width="1040" height="600" role="img" aria-labelledby="t d">
+  <title id="t">AWS で動かす構成：入口は CloudFront 1つ、AI の推論と学習は必要なときだけ動く</title>
+  <desc id="d">ブラウザは CloudFront だけに接続し、パスで画面（S3）・データ管理 API（Lambda）・AI 推論（Lambda）へ振り分けられる。API は Aurora MySQL に保存する。画像は署名付き URL で S3 に直接やり取りする。学習ワーカーは外向きの通信だけで API からジョブを取り、重みを登録する。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <polygon points="0,0 10,5 0,10" fill="#57606a"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <polygon points="0,0 10,5 0,10" fill="#1f6fb2"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="1039" height="599" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+
+  <g font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP','Yu Gothic','Meiryo',sans-serif" fill="#1f2328">
+
+    <text x="30" y="34" font-size="13" fill="#57606a">AWS（シドニー）で動かす構成</text>
+
+    <!-- 利用者 -->
+    <rect x="30" y="200" width="130" height="150" rx="10" fill="#eaf3fb" stroke="#1f6fb2" stroke-width="1.5"/>
+    <text x="95" y="262" font-size="15" font-weight="700" text-anchor="middle">ブラウザ</text>
+    <text x="95" y="286" font-size="12" text-anchor="middle">PC・タブレット</text>
+    <text x="95" y="304" font-size="12" text-anchor="middle">・スマホ</text>
+    <text x="95" y="326" font-size="11.5" fill="#57606a" text-anchor="middle">（React の画面）</text>
+
+    <line x1="160" y1="275" x2="240" y2="275" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="200" y="265" font-size="12" text-anchor="middle">https</text>
+
+    <!-- 入口: CloudFront -->
+    <rect x="240" y="55" width="150" height="425" rx="10" fill="#fff4e5" stroke="#d9822b" stroke-width="1.5"/>
+    <text x="315" y="86" font-size="15" font-weight="700" text-anchor="middle">CloudFront</text>
+    <text x="315" y="108" font-size="12" text-anchor="middle">入口は1つ。</text>
+    <text x="315" y="126" font-size="12" text-anchor="middle">パスで振り分ける</text>
+
+    <!-- 振り分けの3本 -->
+    <line x1="390" y1="130" x2="500" y2="130" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="445" y="120" font-size="12" font-family="Menlo,Consolas,monospace" text-anchor="middle">/*</text>
+    <text x="445" y="150" font-size="11" fill="#57606a" text-anchor="middle">画面を配信</text>
+
+    <line x1="390" y1="270" x2="500" y2="270" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="445" y="260" font-size="12" font-family="Menlo,Consolas,monospace" text-anchor="middle">/api/*</text>
+    <text x="445" y="290" font-size="11" fill="#57606a" text-anchor="middle">ログイン・保存</text>
+
+    <line x1="390" y1="410" x2="500" y2="410" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="445" y="400" font-size="12" font-family="Menlo,Consolas,monospace" text-anchor="middle">/infer/*</text>
+    <text x="445" y="430" font-size="11" fill="#57606a" text-anchor="middle">AI 推論</text>
+
+    <!-- 行A: 画面 -->
+    <rect x="500" y="80" width="200" height="100" rx="10" fill="#f1f3f5" stroke="#6e7781" stroke-width="1.5"/>
+    <text x="520" y="110" font-size="15" font-weight="700">S3：画面</text>
+    <text x="520" y="134" font-size="12">React のビルド結果</text>
+    <text x="520" y="152" font-size="12">（静的ファイル）</text>
+
+    <!-- 行B: データ管理 API -->
+    <rect x="500" y="220" width="200" height="100" rx="10" fill="#eaf6ee" stroke="#2e8b57" stroke-width="1.5"/>
+    <text x="520" y="250" font-size="13" font-weight="700">Lambda：データ管理 API</text>
+    <text x="520" y="274" font-size="12">ログイン・保存・学習ジョブ</text>
+    <text x="520" y="292" font-size="12">① 推論の受付（トークン発行）</text>
+
+    <!-- 行B右: Aurora -->
+    <rect x="800" y="220" width="210" height="100" rx="10" fill="#f1f3f5" stroke="#6e7781" stroke-width="1.5"/>
+    <text x="820" y="250" font-size="15" font-weight="700">Aurora MySQL</text>
+    <text x="820" y="272" font-size="12">組織・プロジェクト・ラベル</text>
+    <text x="820" y="290" font-size="12">モデルの版・学習ジョブ</text>
+    <text x="820" y="308" font-size="12">未使用なら 0 ACU で停止</text>
+
+    <line x1="700" y1="290" x2="800" y2="290" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="750" y="281" font-size="11" text-anchor="middle">SQL（TLS）</text>
+
+    <!-- 行A右: 学習ワーカー -->
+    <rect x="800" y="80" width="210" height="100" rx="10" fill="#eaf6ee" stroke="#2e8b57" stroke-width="1.5"/>
+    <text x="820" y="110" font-size="15" font-weight="700">学習ワーカー</text>
+    <text x="820" y="132" font-size="12">SageMaker ジョブ / GPU PC</text>
+    <text x="820" y="150" font-size="12">運営者が起動したときだけ動く</text>
+    <text x="820" y="168" font-size="12">外向きの通信だけ・状態なし</text>
+
+    <polyline points="800,150 750,150 750,250 700,250" fill="none" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="760" y="208" font-size="11.5">ジョブ取得・重み登録</text>
+
+    <!-- 行C: 推論 -->
+    <rect x="500" y="360" width="200" height="100" rx="10" fill="#eaf6ee" stroke="#2e8b57" stroke-width="1.5"/>
+    <text x="520" y="390" font-size="15" font-weight="700">Lambda：AI 推論</text>
+    <text x="520" y="412" font-size="12">輪郭と順位（摘果）／枝（剪定）</text>
+    <text x="520" y="430" font-size="12">③ 署名トークンだけを信じる</text>
+    <text x="520" y="448" font-size="12">同時実行は 3 まで</text>
+
+    <!-- 行C右: S3 画像・重み -->
+    <rect x="800" y="360" width="210" height="100" rx="10" fill="#f1f3f5" stroke="#6e7781" stroke-width="1.5"/>
+    <text x="820" y="390" font-size="15" font-weight="700">S3：画像・重み</text>
+    <text x="820" y="412" font-size="12">非公開・版管理</text>
+    <text x="820" y="430" font-size="12">画像は署名付き URL で</text>
+    <text x="820" y="448" font-size="12">直接やり取りする</text>
+
+    <line x1="700" y1="410" x2="800" y2="410" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="750" y="400" font-size="11" text-anchor="middle">画像・重みを読む</text>
+
+    <!-- ブラウザから S3 へ直接（API を通らない） -->
+    <polyline points="95,350 95,510 905,510 905,460" fill="none" stroke="#1f6fb2" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#arrowBlue)"/>
+    <text x="500" y="501" font-size="12" font-weight="700" fill="#1f6fb2" text-anchor="middle">② 画像は署名付き URL で、API を通さず直接 PUT / GET</text>
+
+    <!-- 凡例（色が繰り返し意味を持つので置く） -->
+    <rect x="30" y="560" width="14" height="14" rx="3" fill="#eaf3fb" stroke="#1f6fb2"/>
+    <text x="52" y="572" font-size="12">利用者</text>
+    <rect x="130" y="560" width="14" height="14" rx="3" fill="#fff4e5" stroke="#d9822b"/>
+    <text x="152" y="572" font-size="12">入口</text>
+    <rect x="220" y="560" width="14" height="14" rx="3" fill="#eaf6ee" stroke="#2e8b57"/>
+    <text x="242" y="572" font-size="12">計算（動かした時間だけ課金）</text>
+    <rect x="450" y="560" width="14" height="14" rx="3" fill="#f1f3f5" stroke="#6e7781"/>
+    <text x="472" y="572" font-size="12">保存</text>
+  </g>
+</svg>

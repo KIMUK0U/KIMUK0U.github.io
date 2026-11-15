@@ -12,6 +12,38 @@ export const profile = {
 
 export const research = [
   {
+    id: 'R-006',
+    title_ja: '果樹の摘果・剪定アノテーションと継続学習（MirumeAI）',
+    title_en: 'orchard thinning & pruning annotation with continual learning',
+    description: 'MirumeAI のアルバイトで開発している Web アプリ。果樹の写真を開くと AI が果実・枝の輪郭と房ごとの「残す順位」を下書きし、人が番号や「切」の印で直してサーバーへ保存する。保存した修正データで AI を継続学習（DER++）し、組織ごとに版を持って切替・巻き戻しができる。スマホ 1 台で圃場の作業が完結する画面を作った。リポジトリは非公開のため、動画の代わりに画面の紹介画像を掲載。',
+    tags: ['Instance Segmentation', 'MMDetection', 'DINOv2', 'Continual Learning', 'React', 'FastAPI', 'AWS'],
+    year: '2026',
+    privateRepo: true,
+    gif: {
+      src: '/images/mirumeai/mirumeai-annotation.gif',
+      alt: 'アプリ紹介のスライド。摘果の作業画面、スマホの作業画面、剪定の作業画面、継続学習の重み管理画面が、説明文付きで順に切り替わる',
+    },
+    figures: [
+      {
+        src: '/images/mirumeai/purpose-loop.svg',
+        alt: 'AI が下書きを出す、人が直す、サーバーに保存する、継続学習で AI を育てる、の循環',
+        caption: 'AI が下書き → 人が直す → 保存 → 継続学習 の循環',
+      },
+      {
+        src: '/images/mirumeai/architecture-aws.svg',
+        alt: '入口は CloudFront 1つで、画面は S3、API と AI 推論は Lambda、保存は Aurora MySQL と S3。学習ワーカーは外向きの通信だけで動く',
+        caption: 'AWS 構成（すべて AWS CDK / TypeScript で定義）',
+      },
+    ],
+    aws: [
+      'CloudFront を唯一の入口にし、パスで画面（S3）・データ管理 API（Lambda + FastAPI）・AI 推論（Lambda コンテナ / MMDetection・DINOv2）へ振り分け',
+      'Aurora MySQL Serverless v2（未使用時は 0 ACU で停止）で組織・ラベル・モデルの版を管理',
+      '画像は S3 の署名付き URL で直接アップロードし、Lambda を通さない',
+      '継続学習は SageMaker の学習ジョブ。学習 image は CodeBuild で作って ECR へ。ワーカーは状態を持たず外向き通信だけで動く',
+      'NAT・ALB・WAF などの常時課金を置かないサーバーレス構成（月 3,000 円以内が目標）。許可していない種類の資源が増えると CDK のテストが落ちる',
+    ],
+  },
+  {
     id: 'R-000',
     title_ja: '生徒支援AI「ユメカタリ」',
     title_en: 'student support ai "yumekatari"',
