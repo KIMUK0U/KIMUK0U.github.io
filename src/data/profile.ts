@@ -15,13 +15,13 @@ export const research = [
     id: 'R-006',
     title_ja: '果樹の摘果・剪定アノテーションと継続学習（MirumeAI）',
     title_en: 'orchard thinning & pruning annotation with continual learning',
-    description: 'MirumeAI のアルバイトで開発している Web アプリ。果樹の写真を開くと AI が果実・枝の輪郭と房ごとの「残す順位」を下書きし、人が番号や「切」の印で直してサーバーへ保存する。保存した修正データで AI を継続学習（DER++）し、組織ごとに版を持って切替・巻き戻しができる。PC でもスマホでも作業できる画面と、AWS のサーバーレス構成を作った。リポジトリは非公開のため、動画の代わりに GIF を掲載。',
-    tags: ['Instance Segmentation', 'MMDetection', 'DINOv2', 'Continual Learning', 'React', 'FastAPI', 'AWS'],
+    description: 'MirumeAI のアルバイトで開発している Web アプリ。果樹の写真を開くと AI が果実・枝の輪郭と房ごとの「残す順位」を下書きし、人が番号や「切」の印で直してサーバーへ保存する。保存した修正データで AI を継続学習し、組織ごとに版を持って切替・巻き戻しができる。PC でもスマホでも作業できる画面と、AWS のサーバーレス構成を作った。リポジトリは非公開のため、動画の代わりに GIF を掲載。',
+    tags: ['Computer Vision', 'React', 'FastAPI', 'AWS'],
     year: '2026',
     privateRepo: true,
     gif: {
       src: '/images/mirumeai/mirumeai-annotation.gif',
-      alt: 'アプリ紹介のスライド。AI と人の作業の循環図、摘果の作業画面、スマホの作業画面、剪定の作業画面、摘果の継続学習の画面、AWS の構成図が、説明文付きで順に切り替わる',
+      alt: 'アプリ紹介のスライド。AI と人の作業の循環図、摘果の作業画面、スマホの作業画面、剪定の作業画面、AWS の構成図が、説明文付きで順に切り替わる',
     },
   },
   {
