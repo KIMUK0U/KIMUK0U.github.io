@@ -15,7 +15,7 @@ export const research = [
     id: 'R-006',
     title_ja: '果樹の摘果・剪定アノテーションと継続学習（MirumeAI）',
     title_en: 'orchard thinning & pruning annotation with continual learning',
-    description: 'MirumeAI のアルバイトで開発している Web アプリ。果樹の写真を開くと AI が果実・枝の輪郭と房ごとの「残す順位」を下書きし、人が番号や「切」の印で直してサーバーへ保存する。保存した修正データで AI を継続学習（DER++）し、組織ごとに版を持って切替・巻き戻しができる。スマホ 1 台で圃場の作業が完結する画面を作った。リポジトリは非公開のため、動画の代わりに画面の紹介画像を掲載。',
+    description: 'MirumeAI のアルバイトで開発している Web アプリ。果樹の写真を開くと AI が果実・枝の輪郭と房ごとの「残す順位」を下書きし、人が番号や「切」の印で直してサーバーへ保存する。保存した修正データで AI を継続学習（DER++）し、組織ごとに版を持って切替・巻き戻しができる。PC でもスマホでも作業できる画面を作った。リポジトリは非公開のため、動画の代わりに画面の紹介画像を掲載。',
     tags: ['Instance Segmentation', 'MMDetection', 'DINOv2', 'Continual Learning', 'React', 'FastAPI', 'AWS'],
     year: '2026',
     privateRepo: true,
