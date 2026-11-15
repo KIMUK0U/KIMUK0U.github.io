@@ -108,6 +108,16 @@ export const presentations = [
     type: '口述発表（査読なし）',
     url: 'https://ken.ieice.org/ken/paper/20260306EcUA/',
   },
+  {
+    id: 'P-003',
+    title_ja: 'LLMの空間理解に向けたテキストによる歯科解剖学的構造の3次元位置推定',
+    title_en: 'text-based 3d localization of dental anatomical structures toward spatial understanding of llms',
+    event: '第12回 歯科AI研究会',
+    event_en: '12th dental ai study group',
+    date: '2026年8月',
+    type: '口述発表（査読なし）',
+    url: 'https://jdai.or.jp/2026/02/13/12th_study_group/',
+  },
 ];
 
 export const work = [
@@ -123,6 +133,6 @@ export const work = [
 ];
 
 export const skills = {
-  current: ['Python', 'Swift', 'visionOS', '画像認識', 'LLM', 'Apple Vision Pro'],
+  current: ['Python', 'TypeScript', 'Swift', 'visionOS', 'AWS', '画像認識', 'LLM', 'Apple Vision Pro'],
   past: ['3DGS', 'モデリング', 'Apple DepthPro', 'DICOM処理', 'Unity', 'PyTorch'],
 };
