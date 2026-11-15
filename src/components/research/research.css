@@ -7,17 +7,11 @@
   margin-bottom: var(--space-12);
 }
 
-/* タイル: PC 3列・タブレット 2列・スマホ 1列 */
+/* タイル: PC・タブレット 2列・スマホ 1列 */
 .research__list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-6);
-}
-
-@media (max-width: 960px) {
-  .research__list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8);
 }
 
 @media (max-width: 600px) {
@@ -84,6 +78,12 @@
   color: var(--color-text-secondary);
   line-height: 1.8;
   margin-bottom: var(--space-4);
+  /* 説明は3行で切る */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
 
 .research-entry__tags {
