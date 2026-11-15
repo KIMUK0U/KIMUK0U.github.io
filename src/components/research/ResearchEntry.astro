@@ -10,15 +10,13 @@ interface Props {
   privateRepo?: boolean;
   video?: string;
   gif?: { src: string; alt: string };
-  figures?: { src: string; alt: string; caption: string }[];
-  aws?: string[];
   award?: string;
   contributed?: boolean;
 }
 
 const {
   id, title_ja, title_en, description, tags, year, repo, privateRepo,
-  video, gif, figures, aws, award, contributed,
+  video, gif, award, contributed,
 } = Astro.props;
 ---
 
@@ -67,31 +65,15 @@ const {
     )}
 
     {gif && (
-      <figure class="research-entry__gif">
-        <img src={gif.src} alt={gif.alt} width="960" height="600" loading="lazy" decoding="async" />
-      </figure>
-    )}
-
-    {figures && figures.length > 0 && (
-      <div class="research-entry__figures">
-        {figures.map(fig => (
-          <figure class="research-entry__figure">
-            <a href={fig.src} target="_blank" rel="noopener noreferrer" aria-label={`${fig.caption}（拡大して開く）`}>
-              <img src={fig.src} alt={fig.alt} loading="lazy" decoding="async" />
-            </a>
-            <figcaption>{fig.caption}</figcaption>
-          </figure>
-        ))}
-      </div>
-    )}
-
-    {aws && aws.length > 0 && (
-      <div class="research-entry__aws">
-        <p class="research-entry__aws-title">AWS の活用 <span class="en">aws architecture</span></p>
-        <ul>
-          {aws.map(point => <li>{point}</li>)}
-        </ul>
-      </div>
+      <a
+        class="research-entry__video research-entry__gif"
+        href={gif.src}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${title_ja} の紹介 GIF（拡大して開く）`}
+      >
+        <img src={gif.src} alt={gif.alt} width="1120" height="630" loading="lazy" decoding="async" />
+      </a>
     )}
 
     {privateRepo && !repo && (
