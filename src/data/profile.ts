@@ -21,7 +21,7 @@ export const research = [
     privateRepo: true,
     gif: {
       src: '/images/mirumeai/mirumeai-annotation.gif',
-      alt: 'アプリ紹介のスライド。摘果の作業画面、スマホの作業画面、剪定の作業画面、継続学習の重み管理画面が、説明文付きで順に切り替わる',
+      alt: 'アプリ紹介のスライド。摘果の作業画面、スマホの作業画面、剪定の作業画面、摘果の継続学習の画面が、説明文付きで順に切り替わる',
     },
     figures: [
       {
