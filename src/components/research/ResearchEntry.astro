@@ -21,9 +21,35 @@ const {
 ---
 
 <article class="research-entry">
-  <div class="research-entry__id-col" aria-hidden="true">
-    <span class="research-entry__id">{id}</span>
-  </div>
+  {video && (
+    <div class="research-entry__video">
+      <iframe
+        src={`https://www.youtube.com/embed/${video}`}
+        title={`${title_ja} デモ動画`}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    </div>
+  )}
+
+  {gif && (
+    <a
+      class="research-entry__video research-entry__gif"
+      href={gif.src}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${title_ja} の紹介 GIF（拡大して開く）`}
+    >
+      <img src={gif.src} alt={gif.alt} width="1120" height="630" loading="lazy" decoding="async" />
+    </a>
+  )}
+
+  {!video && !gif && (
+    <div class="research-entry__video research-entry__media-empty" aria-hidden="true">
+      <span>{id}</span>
+    </div>
+  )}
 
   <div class="research-entry__body">
     <div class="research-entry__meta">
@@ -52,30 +78,7 @@ const {
       {tags.map(tag => <span class="tag">{tag}</span>)}
     </div>
 
-    {video && (
-      <div class="research-entry__video">
-        <iframe
-          src={`https://www.youtube.com/embed/${video}`}
-          title={`${title_ja} デモ動画`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-      </div>
-    )}
-
-    {gif && (
-      <a
-        class="research-entry__video research-entry__gif"
-        href={gif.src}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`${title_ja} の紹介 GIF（拡大して開く）`}
-      >
-        <img src={gif.src} alt={gif.alt} width="1120" height="630" loading="lazy" decoding="async" />
-      </a>
-    )}
-
+    <div class="research-entry__footer">
     {privateRepo && !repo && (
       <span class="research-entry__private en">private repository</span>
     )}
@@ -93,5 +96,6 @@ const {
         <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
       </svg>
     </a>}
+    </div>
   </div>
 </article>
