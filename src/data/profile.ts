@@ -13,10 +13,10 @@ export const profile = {
 export const research = [
   {
     id: 'R-006',
-    title_ja: '果樹の摘果・剪定アノテーションと継続学習（MirumeAI）',
-    title_en: 'orchard thinning & pruning annotation with continual learning',
-    description: 'MirumeAI のアルバイトで開発している Web アプリ。果樹の写真を開くと AI が果実・枝の輪郭と房ごとの「残す順位」を下書きし、人が番号や「切」の印で直してサーバーへ保存する。保存した修正データで AI を継続学習し、組織ごとに版を持って切替・巻き戻しができる。PC でもスマホでも作業できる画面と、AWS のサーバーレス構成を作った。リポジトリは非公開のため、動画の代わりに GIF を掲載。',
-    tags: ['Computer Vision', 'React', 'FastAPI', 'AWS'],
+    title_ja: '果樹の摘果・剪定アノテーションアプリ（MirumeAI）',
+    title_en: 'orchard thinning & pruning annotation app',
+    description: 'MirumeAI のアルバイトで開発している Web アプリ。果樹の写真を開くと AI が果実・枝の輪郭と房ごとの「残す順位」を下書きし、人が番号や「切」の印で直してサーバーへ保存する。保存した修正データで AI を学び直し、組織ごとに版を持って切替・巻き戻しができる。PC でもスマホでも作業できる画面と、AWS のサーバーレス構成を作った。リポジトリは非公開のため、動画の代わりに GIF を掲載。',
+    tags: ['TypeScript', 'Python', 'AWS'],
     year: '2026',
     privateRepo: true,
     gif: {
